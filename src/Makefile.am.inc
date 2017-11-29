@@ -19,6 +19,7 @@ $(dbus_built_sources): src/Makefile.am.inc
 	 $(DESKTOP_PORTAL_INTERFACES_DIR)/org.freedesktop.impl.portal.Access.xml \
 	 $(DESKTOP_PORTAL_INTERFACES_DIR)/org.freedesktop.impl.portal.Account.xml \
 	 $(DESKTOP_PORTAL_INTERFACES_DIR)/org.freedesktop.impl.portal.Email.xml \
+	 $(DESKTOP_PORTAL_INTERFACES_DIR)/org.freedesktop.impl.portal.ScreenCast.xml \
 	$(NULL)
 
 shell_built_sources = src/shell-dbus.c src/shell-dbus.h
@@ -29,6 +30,7 @@ $(shell_built_sources): src/Makefile.am.inc
 	$(AM_V_GEN) $(GDBUS_CODEGEN)			                \
 	--generate-c-code src/shell-dbus	                        \
 	$(top_srcdir)/data/org.gnome.Mutter.DisplayConfig.xml	        \
+	$(top_srcdir)/data/org.gnome.Mutter.ScreenCast.xml	        \
 	$(top_srcdir)/data/org.gnome.Shell.Screenshot.xml	        \
 	$(top_srcdir)/data/org.gtk.Notifications.xml			\
 	$(top_srcdir)/data/org.gnome.SessionManager.xml		        \
@@ -51,6 +53,7 @@ EXTRA_DIST += \
         src/appchooserrow.ui                            \
         src/screenshotdialog.ui                         \
         src/accountdialog.ui                            \
+        src/screencastdialog.ui                         \
 	$(NULL)
 
 libexec_PROGRAMS = \
@@ -95,6 +98,10 @@ xdg_desktop_portal_gtk_SOURCES = \
         src/gtkbackports.c                      \
 	src/externalwindow.h			\
 	src/externalwindow.c			\
+	src/screencast.c			\
+	src/srceencast.h			\
+	src/screencastdialog.c			\
+	src/srceencastdialog.h			\
 	src/displaystatetracker.c		\
 	src/displaystatetracker.h		\
 	$(NULL)

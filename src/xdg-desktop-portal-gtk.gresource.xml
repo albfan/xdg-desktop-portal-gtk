@@ -6,6 +6,7 @@
     <file>appchooserdialog.css</file>
     <file>screenshotdialog.ui</file>
     <file>accountdialog.ui</file>
+    <file>screencastdialog.ui</file>
   </gresource>
 </gresources>
 
